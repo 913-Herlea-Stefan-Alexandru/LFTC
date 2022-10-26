@@ -17,8 +17,6 @@ class HashTable:
         return hashsum
 
     def insert(self, key, value):
-        self.size += 1
-
         index = self.hash(key)
         node = self.buckets[index]
 
@@ -33,6 +31,7 @@ class HashTable:
             prev = node
             node = node.next
 
+        self.size += 1
         prev.next = Node(key, value)
 
     def find(self, key):
