@@ -1,0 +1,23 @@
+3a = 0;
+b = 0;
+c = 0;
+
+input(3a);
+input(b);
+input(c);#
+
+mx = 0;
+
+if (3a > mx) {
+	mx = 3a;
+}
+
+if (b > mx) {
+	mx = b;
+}
+
+if (c > mx) {
+	mx = c;
+}
+
+print(mx);

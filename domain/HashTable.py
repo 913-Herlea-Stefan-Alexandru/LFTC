@@ -1,5 +1,5 @@
-from Node import Node
 from Constants import INITIAL_CAPACITY
+from domain.Node import Node
 
 class HashTable:
     def __init__(self):

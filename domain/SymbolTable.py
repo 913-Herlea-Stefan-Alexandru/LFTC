@@ -1,5 +1,4 @@
-from HashTable import HashTable
-
+from domain.HashTable import HashTable
 
 class SymbolTable:
 
@@ -13,4 +12,5 @@ class SymbolTable:
         self.index += 1
 
     def add_constant(self, constant):
-        self.constantsTable.insert(constant, constant)
+        self.constantsTable.insert(constant, self.index)
+        self.index += 1

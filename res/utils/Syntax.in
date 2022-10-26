@@ -1,0 +1,39 @@
+program ::= stmt{stmt}
+
+relation ::= "<" | ">" | "<=" | ">=" | "!=" | "=="
+
+booloper ::= "and" | "or"
+
+arithoper ::= "+" | "-" | "*" | "/"
+
+ifstmt ::= "if" "(" compcond ")" "{" stmt{stmt} "}"
+
+condition ::= expression relation expression
+
+boolcond ::= compcond booloper compcond
+
+compcond ::= condition | booldcond | bool
+
+expression ::= expression arithoper term | term
+
+exchstmt ::= identifier "<=>" identifier ";"
+
+term ::= int | identifier
+
+stmt ::= assignstmt | iostmt | ifstmt | whilestmt | forstmt | exchstmt
+
+assignoper ::= "=" | "+=" | "-=" | "*=" | "/="
+
+assignstmt ::= identifier assignoper (conststring | character | expression) ";"
+
+instmt ::= "input" "(" identifier ")" ";"
+
+outstmt ::= "print" "(" (expression | conststring) ")" ";"
+
+iostmt ::= instmt | outstmt
+
+whilestmt ::= "while" "(" compcond ")" "{" stmt{stmt} "}"
+
+forstmt::= "for" "(" identifier "in" (identifier | constlist) ")" "{" stmt{stmt} "}"
+
+constlist ::= "[]" | "[" {term ","}term "]" | "[" term "..." term "]"

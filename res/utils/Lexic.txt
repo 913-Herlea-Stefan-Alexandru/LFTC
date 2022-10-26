@@ -1,0 +1,34 @@
+Alphabet:
+	- lower and upper case letters
+	- underline
+	- digits
+
+Special symbols:
+	- operators + - * / = == <= >= <=> != and or += -= *= /=
+
+	- separators [ ] { } ; : space ( ) , ...
+
+	- reserved words: for if in input print else while do int char string bool list
+
+Identifiers:
+	- a sequence of letters, underlines and digits, the first characer being a letter or underline
+	- rules:
+		identifier ::= lettandline{charseq}
+		charseq ::= (lettandline | digit){lettandline | digit}
+		letter ::= "a" | "b" | ... | "z" | "A" | "B" | ... | "Z"
+		lettandline ::= letter | "_"
+		digit ::= "0" | "1" | ... | "9"
+
+Constants:
+	- integer rule:
+		nzdigit ::= "1" | "2" | ... | "9"
+		int ::= "0" | ["+" | "-"]nzdigit{digit}
+	- character rule:
+		character ::= "'"letter"'" | "'"digit"'" | "'"specialchar"'"
+		specialchar ::= "`" | "~" | "!" | "@" | ...
+	- string rule:
+		char ::= letter | digit | specialchar
+		string ::= {char}
+		conststring ::= "\""string"\""
+	- bool rule:
+		bool ::= "true" | "false"
