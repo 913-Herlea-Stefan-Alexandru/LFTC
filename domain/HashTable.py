@@ -1,5 +1,7 @@
 from Constants import INITIAL_CAPACITY
 from domain.Node import Node
+from tabulate import tabulate
+
 
 class HashTable:
     def __init__(self):
@@ -45,3 +47,17 @@ class HashTable:
             return -1
         else:
             return node.value
+
+    def get_table(self, key_header, value_header):
+        data = []
+        headers = [key_header, value_header]
+
+        for bucket in self.buckets:
+            if not bucket:
+                continue
+            node = bucket
+            while node is not None:
+                data.append([node.key, node.value])
+                node = node.next
+
+        return tabulate(data, headers=headers, tablefmt="grid")
