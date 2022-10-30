@@ -10,7 +10,8 @@ if __name__ == "__main__":
         identifier_table, constants_table = st.get_tables()
 
         f = open("res/out/ST.out", "w")
-        f.write("Identifier table: \n\n")
+        f.write("Using 2 hash tables (one for the identifiers and one for the constants)")
+        f.write("\n\nIdentifier table: \n\n")
         f.write(identifier_table)
         f.write("\n\nConstants table: \n\n")
         f.write(constants_table)

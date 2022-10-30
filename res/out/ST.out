@@ -1,3 +1,5 @@
+Using 2 hash tables (one for the identifiers and one for the constants)
+
 Identifier table: 
 
 +--------------+----------+
