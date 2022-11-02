@@ -1,0 +1,6 @@
+a = "aaaa"
+b = 'a'
+c = "aa aaa aa"
+d = "aa'aa"
+e = ' '
+f = '"'

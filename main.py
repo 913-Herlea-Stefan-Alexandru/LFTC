@@ -3,7 +3,7 @@ from domain.SymbolTable import SymbolTable
 
 if __name__ == "__main__":
     st = SymbolTable()
-    scanner = LexicalScanner("res/input/src/p3.txt", "res/input/utils/token.in", st)
+    scanner = LexicalScanner("res/input/src/p1err.txt", "res/input/utils/token.in", st)
 
     try:
         scanner.generate_symbol_table()

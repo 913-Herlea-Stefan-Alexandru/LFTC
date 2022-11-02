@@ -34,7 +34,29 @@ class LexicalScanner:
         regex_expr = '(\\' + regex_expr + ')'
         for line in f:
             split_line = re.split(regex_expr, line)
-            split_line = [item for item in split_line if item not in ['', ' ', '\n', '\t']]
+            tear_split_line = []
+            in_string = [False, ""]
+            token = ""
+            for item in split_line:
+                if item in ["'", '"']:
+                    if in_string[0]:
+                        if item == in_string[1]:
+                            in_string[0] = False
+                            in_string[1] = ""
+                    else:
+                        in_string[0] = True
+                        in_string[1] = item
+                    token += item
+                    if not in_string[0]:
+                        tear_split_line.append(token)
+                        token = ""
+                elif not in_string[0]:
+                    token = ""
+                    if item not in ['', ' ', '\n', '\t']:
+                        tear_split_line.append(item)
+                else:
+                    token += item
+            split_line = tear_split_line
             if split_line:
                 self.split_program.append(split_line)
 
@@ -68,15 +90,14 @@ class LexicalScanner:
         self.pif = []
         for line in self.split_program:
             for token in line:
-                pos = self.symbol_table.find(token)
                 if token in self.tokens:
-                    self.pif.append([token, pos])
+                    self.pif.append([token, -1])
                     continue
                 if re.findall(IDENTIFIER_FORMAT, token):
-                    self.pif.append(["id", pos])
+                    self.pif.append(["id", self.symbol_table.find_id(token)])
                     continue
                 if re.findall(CONSTANT_FORMAT, token):
-                    self.pif.append(["const", pos])
+                    self.pif.append(["const", self.symbol_table.find_const(token)])
 
     def get_pif_table(self):
         header = ["TOKEN", "ST_POS"]
