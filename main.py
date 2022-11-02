@@ -3,7 +3,7 @@ from domain.SymbolTable import SymbolTable
 
 if __name__ == "__main__":
     st = SymbolTable()
-    scanner = LexicalScanner("res/input/src/p1err.txt", "res/input/utils/token.in", st)
+    scanner = LexicalScanner("res/input/src/p3.txt", "res/input/utils/token.in", st)
 
     try:
         scanner.generate_symbol_table()
@@ -22,4 +22,10 @@ if __name__ == "__main__":
         f.write("PIF table: \n\n")
         f.write(scanner.get_pif_table())
     except Exception as e:
+        f = open("res/out/ST.out", "w")
+        f.write("")
+        f.close()
+        f = open("res/out/PIF.out", "w")
+        f.write("")
+        f.close()
         print(e)
