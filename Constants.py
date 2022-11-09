@@ -1,7 +1,5 @@
 INITIAL_CAPACITY = 50
-IDENTIFIER_FORMAT = '^[a-zA-Z_][a-zA-Z0-9_]*$'
-INTEGER_FORMAT = '(0|[+-]?[1-9][0-9]*)'
 BOOLEAN_FORMAT = '(true|false)'
 CHAR_FORMAT = '(\'.\'?)'
 STRING_FORMAT = '(".*")'
-CONSTANT_FORMAT = '^(' + INTEGER_FORMAT + '|' + BOOLEAN_FORMAT + '|' + CHAR_FORMAT + '|' + STRING_FORMAT + ')$'
+CONSTANT_FORMAT = '^(' + '|' + BOOLEAN_FORMAT + '|' + CHAR_FORMAT + '|' + STRING_FORMAT + ')$'

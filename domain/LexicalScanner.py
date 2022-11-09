@@ -1,13 +1,15 @@
 import re
-from Constants import IDENTIFIER_FORMAT, CONSTANT_FORMAT
+from Constants import CONSTANT_FORMAT
 from tabulate import tabulate
 
 
 class LexicalScanner:
-    def __init__(self, file_name, token_file, symbol_table):
+    def __init__(self, file_name, token_file, symbol_table, integer_fa, id_fa):
         self.file_name = file_name
         self.token_file = token_file
         self.symbol_table = symbol_table
+        self.integer_fa = integer_fa
+        self.id_fa = id_fa
         self.pif = []
         self.tokens = []
         self.delimiters = []
@@ -65,8 +67,12 @@ class LexicalScanner:
             for token in self.split_program[line]:
                 if token in self.tokens:
                     continue
-                if re.findall(IDENTIFIER_FORMAT, token):
+                if self.id_fa.verify_sequence(token):
                     continue
+                if self.integer_fa.verify_sequence(token):
+                    continue
+                # if re.findall(IDENTIFIER_FORMAT, token):
+                #     continue
                 if re.findall(CONSTANT_FORMAT, token):
                     continue
                 raise Exception("Lexical error on line " + str(line + 1) + "; token: " + token)
@@ -80,9 +86,15 @@ class LexicalScanner:
             for token in line:
                 if token in self.tokens:
                     continue
-                if re.findall(IDENTIFIER_FORMAT, token):
+                if self.id_fa.verify_sequence(token):
                     self.symbol_table.add_identifier(token)
                     continue
+                if self.integer_fa.verify_sequence(token):
+                    self.symbol_table.add_constant(token)
+                    continue
+                # if re.findall(IDENTIFIER_FORMAT, token):
+                #     self.symbol_table.add_identifier(token)
+                #     continue
                 if re.findall(CONSTANT_FORMAT, token):
                     self.symbol_table.add_constant(token)
 
@@ -93,9 +105,15 @@ class LexicalScanner:
                 if token in self.tokens:
                     self.pif.append([token, -1])
                     continue
-                if re.findall(IDENTIFIER_FORMAT, token):
+                if self.id_fa.verify_sequence(token):
                     self.pif.append(["id", self.symbol_table.find_id(token)])
                     continue
+                if self.integer_fa.verify_sequence(token):
+                    self.pif.append(["const", self.symbol_table.find_const(token)])
+                    continue
+                # if re.findall(IDENTIFIER_FORMAT, token):
+                #     self.pif.append(["id", self.symbol_table.find_id(token)])
+                #     continue
                 if re.findall(CONSTANT_FORMAT, token):
                     self.pif.append(["const", self.symbol_table.find_const(token)])
 

@@ -1,9 +1,10 @@
 from domain.LexicalScanner import LexicalScanner
 from domain.SymbolTable import SymbolTable
+from fa.domain.Fa import Fa
 
 if __name__ == "__main__":
     st = SymbolTable()
-    scanner = LexicalScanner("res/input/src/p3.txt", "res/input/utils/token.in", st)
+    scanner = LexicalScanner("res/input/src/p3.txt", "res/input/utils/token.in", st, Fa("res/input/fa/integer.txt"), Fa("res/input/fa/identifier.txt"))
 
     try:
         scanner.generate_symbol_table()
