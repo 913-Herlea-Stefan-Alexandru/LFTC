@@ -12,7 +12,7 @@ def print_menu():
 
 
 if __name__ == "__main__":
-    fa = Fa("fa.txt")
+    fa = Fa("fa.in")
     is_running = True
 
     while is_running:
