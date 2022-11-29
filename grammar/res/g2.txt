@@ -1,0 +1,27 @@
+program relation booloper arithoper ifstmt condition boolcond compcond expression exchstmt term stmt assignoper exprconststring assignableexpr assignstmt instmt outstmt iostmt whilestmt identifierconstlist forstmt innerlist constlist
+; int == while , - and print > / <= * [ + character != *= } ] ... = < { if bool <=> ( conststring [] or >= += /= -= input identifier ) for in
+program
+program:stmt|program stmt
+relation:<|>|<=|>=|!=|==
+booloper:and|or
+arithoper:+|-|*|/
+ifstmt:if ( compcond ) { program }
+condition:expression relation expression
+boolcond:compcond booloper compcond
+compcond:condition|boolcond|bool
+expression:expression arithoper term|term
+exchstmt:identifier <=> identifier ;
+term:int|identifier
+stmt:assignstmt|iostmt|ifstmt|whilestmt|forstmt|exchstmt
+assignoper:=|+=|-=|*=|/=
+exprconststring:expression|conststring
+assignableexpr:character|exprconststring
+assignstmt:identifier assignoper assignableexpr ;
+instmt:input ( identifier ) ;
+outstmt:print ( exprconststring ) ;
+iostmt:instmt|outstmt
+whilestmt:while ( compcond ) { program }
+identifierconstlist:identifier|constlist
+forstmt:for ( identifier in identifierconstlist ) { program }
+innerlist:term|term , innerlist
+constlist:[]|[ innerlist ]|[ term ... term ]

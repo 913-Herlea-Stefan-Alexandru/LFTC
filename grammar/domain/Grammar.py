@@ -3,7 +3,7 @@ class Grammar:
 
     def __init__(self, file_name):
         self.file_name = file_name
-        self.non_terminals, self.terminals, self.program, self.predictions = self.read_grammar()
+        self.non_terminals, self.terminals, self.program, self.productions = self.read_grammar()
 
     def read_grammar(self):
         f = open(self.file_name, "r")
@@ -17,12 +17,24 @@ class Grammar:
         predictions_list = [t.strip() for t in gr[3:]]
         predictions = {}
         for p in predictions_list:
-            pr = p.strip().split(" ")
+            pr = p.strip().split(":")
             key = pr[0]
             predictions[key] = []
-            for dest in pr[1:]:
-                predictions[key].append(dest)
+            dest = pr[1].split("|")
+            for d in dest:
+                predictions[key].append(d.split(" "))
         return non_terminals, terminals, program, predictions
 
-    def get_prediction(self, nominal):
-        return self.predictions[nominal]
+    def get_production(self, nominal):
+        return self.productions[nominal]
+
+    def cfg_check(self):
+        for symbol in self.productions:
+            if symbol not in self.non_terminals:
+                return False
+            productions = self.productions[symbol]
+            for production in productions:
+                for elem in production:
+                    if elem not in self.non_terminals and elem not in self.terminals:
+                        return False
+        return True
