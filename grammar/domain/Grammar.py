@@ -25,8 +25,8 @@ class Grammar:
                 predictions[key].append(d.split(" "))
         return non_terminals, terminals, program, predictions
 
-    def get_production(self, nominal):
-        return self.productions[nominal]
+    def get_production(self, non_terminal):
+        return self.productions[non_terminal]
 
     def cfg_check(self):
         for symbol in self.productions:

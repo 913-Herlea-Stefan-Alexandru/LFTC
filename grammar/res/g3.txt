@@ -1,0 +1,9 @@
+S B C D E F
+a h c b g f eps
+S
+S:a B D h
+B:c C
+C:b C|eps
+D:E F
+E:g|eps
+F:f|eps
