@@ -121,17 +121,17 @@ class Parser:
             first_list = self.first_of(right[0])
             for element in first_list:
                 if element in self.grammar.terminals:
-                    # if len(self.parsing_table[left][element]) >= 1:
-                    #     raise Exception(f"There is a conflict at row {left} and column {element} \n"
-                    #                     f"The current value is {self.parsing_table[left][element]} \n")
+                    if len(self.parsing_table[left][element]) >= 1:
+                        raise Exception(f"There is a conflict at row {left} and column {element} \n"
+                                        f"The current value is {self.parsing_table[left][element]} \n")
                     self.parsing_table[left][element] = (left, right, index + 1)
             if EPSILON in first_list:
                 follow_list = self.follow_map[left]
                 for element in follow_list:
                     if element in self.grammar.terminals:
-                        # if len(self.parsing_table[left][element]) >= 1:
-                        #     raise Exception(f"There is a conflict at row {left} and column {element} \n"
-                        #                     f"The current value is {self.parsing_table[left][element]} \n")
+                        if len(self.parsing_table[left][element]) >= 1:
+                            raise Exception(f"There is a conflict at row {left} and column {element} \n"
+                                            f"The current value is {self.parsing_table[left][element]} \n")
                         self.parsing_table[left][element] = (left, [EPSILON], index + 1)
                 if '$' in follow_list:
                     self.parsing_table[left]['$'] = (left, [EPSILON], index + 1)
@@ -169,10 +169,9 @@ class Parser:
                 else:
                     output_stack += [table_value[2]]
 
-        except Exception as error:
-            print(f'The sequence has an error! ({first_working, first_input}) key does not exist '
-                  f'in the parsing table.')
-            return None
+        except Exception:
+            raise Exception(f'The sequence has an error! ({first_working, first_input}) key does not exist '
+                            f'in the parsing table.')
 
         return self.parse_algorithm(input_stack, working_stack, output_stack)
 

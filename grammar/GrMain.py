@@ -3,7 +3,7 @@ from domain.Parser import Parser
 
 
 if __name__ == "__main__":
-    gr = Grammar("res/g2.txt")
+    gr = Grammar("res/g5.txt")
     # print("Non terminals: " + str(gr.non_terminals))
     # print("Terminals: " + str(gr.terminals))
     # print("Program: " + str(gr.program))
@@ -23,8 +23,16 @@ if __name__ == "__main__":
     #     print(str(fl) + " -> " + str(pr.get_follow_map()[fl]))
 
     print()
-    pr.parse_table()
+    try:
+        pr.parse_table()
+    except Exception as e:
+        print(e)
+        exit()
     print(pr.get_parsing_table_as_string())
     print()
 
-    pr.parse_algorithm_start("while ( bool ) { identifier <=> identifier ; }", "parser_output.txt")
+    # https://www.geeksforgeeks.org/compiler-design-ll1-parser-in-python/
+    try:
+        pr.parse_algorithm_start("a r k O", "parser_output.txt")
+    except Exception as e:
+        print(e)
