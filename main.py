@@ -1,6 +1,8 @@
 from domain.LexicalScanner import LexicalScanner
 from domain.SymbolTable import SymbolTable
 from fa.domain.Fa import Fa
+from grammar.domain.Grammar import Grammar
+from grammar.domain.Parser import Parser
 
 if __name__ == "__main__":
     st = SymbolTable()
@@ -30,4 +32,31 @@ if __name__ == "__main__":
         f = open("res/out/PIF.out", "w")
         f.write("")
         f.close()
+        print(e)
+        exit()
+
+    gr = Grammar("grammar/res/g2.txt")
+    if gr.cfg_check():
+        for non_terminal in gr.non_terminals:
+            print(str(non_terminal) + " -> " + str(gr.get_production(non_terminal)))
+    pr = Parser(gr)
+    pr.first()
+    pr.follow()
+
+    print()
+    try:
+        pr.parse_table()
+    except Exception as e:
+        print(e)
+        exit()
+    print(pr.get_parsing_table_as_string())
+    print()
+
+    sequence = " ".join([f[0] for f in scanner.pif])
+
+    print(sequence)
+
+    try:
+        pr.parse_algorithm_start(sequence, "parser_output.txt")
+    except Exception as e:
         print(e)
