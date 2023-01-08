@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/cygdrive/d/Formal Languages/Lab8/lex.yy.c" "/cygdrive/d/Formal Languages/Lab8/cmake-build-debug/CMakeFiles/Lab8.dir/lex.yy.c.o"
-  "/cygdrive/d/Formal Languages/Lab8/main.c" "/cygdrive/d/Formal Languages/Lab8/cmake-build-debug/CMakeFiles/Lab8.dir/main.c.o"
+  "/cygdrive/d/Formal Languages/BigProject/LFTC/Lab8/lex.yy.c" "/cygdrive/d/Formal Languages/BigProject/LFTC/Lab8/cmake-build-debug/CMakeFiles/Lab8.dir/lex.yy.c.o"
+  "/cygdrive/d/Formal Languages/BigProject/LFTC/Lab8/main.c" "/cygdrive/d/Formal Languages/BigProject/LFTC/Lab8/cmake-build-debug/CMakeFiles/Lab8.dir/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

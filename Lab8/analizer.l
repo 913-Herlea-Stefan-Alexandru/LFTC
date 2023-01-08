@@ -110,7 +110,7 @@ int lexic_main(char* filename)
     printf("TOKEN | ST_POS \n");
     yylex();
     fclose(yyin);
-    printf("\nTS\n");
+    printf("\nST\n");
     printf("ID\n");
     int j = 0;
     for(j = 0; j < idsCount; j++) {
