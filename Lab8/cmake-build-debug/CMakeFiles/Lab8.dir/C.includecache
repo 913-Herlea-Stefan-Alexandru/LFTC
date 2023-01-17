@@ -6,5 +6,45 @@
 
 #IncludeRegexTransform: 
 
-/cygdrive/d/Formal Languages/BigProject/LFTC/Lab8/main.c
+/cygdrive/d/Formal Languages/BigProject/LFTC/Lab8/lex.yy.c
+stdio.h
+-
+stdlib.h
+-
+unistd.h
+-
+io.h
+-
+stdlib.h
+-
+stdlib.h
+-
+string.h
+-
+y.tab.h
+/cygdrive/d/Formal Languages/BigProject/LFTC/Lab8/y.tab.h
+stdlib.h
+-
+
+/cygdrive/d/Formal Languages/BigProject/LFTC/Lab8/y.tab.c
+stdio.h
+-
+stdlib.h
+-
+stddef.h
+-
+libintl.h
+-
+alloca.h
+-
+malloc.h
+-
+stdlib.h
+-
+stdlib.h
+-
+stdio.h
+-
+
+/cygdrive/d/Formal Languages/BigProject/LFTC/Lab8/y.tab.h
 

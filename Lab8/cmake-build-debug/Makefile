@@ -197,6 +197,33 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Lab8.dir/build.make CMakeFiles/Lab8.dir/main.c.s
 .PHONY : main.c.s
 
+y.tab.o: y.tab.c.o
+
+.PHONY : y.tab.o
+
+# target to build an object file
+y.tab.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Lab8.dir/build.make CMakeFiles/Lab8.dir/y.tab.c.o
+.PHONY : y.tab.c.o
+
+y.tab.i: y.tab.c.i
+
+.PHONY : y.tab.i
+
+# target to preprocess a source file
+y.tab.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Lab8.dir/build.make CMakeFiles/Lab8.dir/y.tab.c.i
+.PHONY : y.tab.c.i
+
+y.tab.s: y.tab.c.s
+
+.PHONY : y.tab.s
+
+# target to generate assembly for a file
+y.tab.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Lab8.dir/build.make CMakeFiles/Lab8.dir/y.tab.c.s
+.PHONY : y.tab.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -212,6 +239,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... y.tab.o"
+	@echo "... y.tab.i"
+	@echo "... y.tab.s"
 .PHONY : help
 
 

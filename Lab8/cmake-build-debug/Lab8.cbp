@@ -80,6 +80,9 @@
 		<Unit filename="/cygdrive/d/Formal Languages/BigProject/LFTC/Lab8/main.c">
 			<Option target="Lab8"/>
 		</Unit>
+		<Unit filename="/cygdrive/d/Formal Languages/BigProject/LFTC/Lab8/y.tab.c">
+			<Option target="Lab8"/>
+		</Unit>
 		<Unit filename="/cygdrive/d/Formal Languages/BigProject/LFTC/Lab8/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

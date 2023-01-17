@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Lab8.dir/lex.yy.c.o"
   "CMakeFiles/Lab8.dir/main.c.o"
+  "CMakeFiles/Lab8.dir/y.tab.c.o"
   "Lab8.exe"
   "Lab8.pdb"
   "libLab8.dll.a"

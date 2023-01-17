@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_C
   "/cygdrive/d/Formal Languages/BigProject/LFTC/Lab8/lex.yy.c" "/cygdrive/d/Formal Languages/BigProject/LFTC/Lab8/cmake-build-debug/CMakeFiles/Lab8.dir/lex.yy.c.o"
   "/cygdrive/d/Formal Languages/BigProject/LFTC/Lab8/main.c" "/cygdrive/d/Formal Languages/BigProject/LFTC/Lab8/cmake-build-debug/CMakeFiles/Lab8.dir/main.c.o"
+  "/cygdrive/d/Formal Languages/BigProject/LFTC/Lab8/y.tab.c" "/cygdrive/d/Formal Languages/BigProject/LFTC/Lab8/cmake-build-debug/CMakeFiles/Lab8.dir/y.tab.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
